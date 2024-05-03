@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #040924;
+    --white-color: #fff;
+
+    --tt-heading-color: #0C3440;
+    --tt-label-color: #00453A;
+    --p-color: #212529;
+    --placeholder-color: rgba(73, 80, 87, 0.5);
+
+    --input-color: #DCE2E9;
+    --input-text-color: #212529;
+    --input-outline-color: #02799D;
+    --input-border-color: rgba(73, 80, 87, 0.3);
+
+    --button-color:  #02799D;
+    --button-text-color: #fff;
+    --button-hover-color: #01475c;
+
+    --modal-container-bg: rgba(0, 0, 0, 0.7);
+    --close-card-icon-color: rgba(12, 52, 64, 0.6);
+
+    --error-alert-color: #F03E3E;
+
+    --max-padding-64: 4rem;
+    --medium-padding-48: 3rem;
+    --min-padding-16: 1rem;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--bg-color);
+}
+
+bnody, input, button {
+    font-size: 1rem;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.card {
+    padding: var(--medium-padding-48) var(--max-padding-64) var(--max-padding-64);
+    max-width: 26.75rem;
+    margin-inline: auto;
+
+    background: var(--white-color);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+}
+
+.bmi-form-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+form {
+    width: 18.75rem;
+}
+
+form h1 {
+    margin-bottom: 2rem;
+    color: var(--tt-heading-color);
+}
+
+form label {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    color: var(--tt-label-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    width: 100%;
+    border: 1px solid var(--input-border-color);
+    background: var(--input-color);
+    padding: var(--min-padding-16);
+    border-radius: 0.25rem;
+}
+
+form input:focus {
+    outline: 2px solid var(--input-outline-color);
+}
+
+form input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.input-wrapper + .input-wrapper {
+    margin-top: 1rem;
+}
+
+form button {
+    margin-top: 2rem;
+    padding: var(--min-padding-16);
+    width: 100%;
+    
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--button-color);
+    color: var(--white-color);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    
+    font-weight: bold;
+    line-height: 1.25rem;
+    
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: var(--button-hover-color);
+}
+
+/* modal */
+.modal-wrapper.open{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-wrapper {
+    position: absolute;
+    inset: 0;
+    background: var(--modal-container-bg);
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    position: relative;
+}
+
+.close-modal-action-button {
+    background: none;
+    border: none;
+
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    color: var(--close-card-icon-color);
+    cursor: pointer;
+
+    transition: transform .3s;
+}
+
+.close-modal-action-button:hover {
+    transform: scale(1.1);
+}
+
+/* alert error */
+
+.alert-error.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.5s;
+}
+
+.alert-error.close {
+    transform: translateY(-50px);
+    transition: transform 0.5s;
+}
+
+.alert-error {
+    background-color: var(--error-alert-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    color: var(--white-color);
+    text-align: center;
+
+    padding: 0.5rem 0;
+    font-weight: bold;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50px);
+}
